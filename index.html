@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+    <head>
+        <title>Web playables</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" type="image/png" href="media/icon/favicon.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="sidebar">
+            <p id="titleSidebar">K's Browser games</p>
+        </div>
+        <div class="content">
+            <p id="titleContent">Search for games</p>
+            <input type="text" id="searchField" placeholder="Search for apps..." oninput="filterApps()" autocomplete="off">
+            <div id="results"></div>
+        </div>
+        <script src="filterApps.js"></script>
+    </body>
 </html>
