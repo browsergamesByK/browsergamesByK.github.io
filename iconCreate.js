@@ -1,6 +1,10 @@
 async function displayGameIcons() {
     const resultsContainer = document.getElementById("results");
-    resultsContainer.innerHTML = ""; // Clear previous content
+    resultsContainer.innerHTML = `
+        <p style="color: white; text-align: center; font-size: 24px; font-weight: bold; margin-top: 20px;">
+            Loading...
+        </p>
+    `; // Display "Loading..." with larger text
 
     try {
         const response = await fetch("/apps.json");
@@ -36,11 +40,19 @@ async function displayGameIcons() {
             }
         }
 
+        resultsContainer.innerHTML = ""; // Clear "Loading..." text
         resultsContainer.appendChild(iconContainer);
     } catch (error) {
         console.error("Fehler beim Laden der App-Liste:", error);
+        resultsContainer.innerHTML = "<p style='color: red; text-align: center;'>Fehler beim Laden der Spieleliste.</p>";
     }
 }
+
+// Call the function on page load
+window.onload = () => {
+    loadApps(); // Existing function for search functionality
+    displayGameIcons(); // New function to display icons
+};
 
 // Call the function on page load
 window.onload = () => {
